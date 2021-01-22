@@ -9,6 +9,7 @@ namespace OOPLabs
         {
             InitLabOne();
             InitLab2();
+            InitLab3();
         }
 
         private static void InitLabOne()
@@ -87,6 +88,29 @@ namespace OOPLabs
             }
 
             var AnonimousType = new { InitialString = "That is the initial string", CanBeEqual = true };
+        }
+
+        private static void InitLab3()
+        {
+            try
+            {
+                ThrowException();
+            } 
+            catch (WrongNeighbourhoodException e)
+            {
+                Console.WriteLine("I caught you a nice exception!");
+                Console.WriteLine(e);
+            }
+            catch
+            {
+                Console.WriteLine("Wow some stuff happened!");
+            }
+
+        }
+
+        private static void ThrowException()
+        {
+            throw new WrongNeighbourhoodException();
         }
     }
 }
